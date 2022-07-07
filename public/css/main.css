@@ -18,10 +18,14 @@ body {
   padding-top: 20px;
 }
 
+.main-content {
+  max-height: 100%;
+}
 .main-content--dashboard {
   height: 100%;
   background-color: #EEF1FF;
   width: 100%;
+  overflow: scroll;
 }
 .main-content--dashboard .container {
   z-index: 10;
