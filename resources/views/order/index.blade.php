@@ -102,7 +102,7 @@
                     <p class="title-section">Choose Service</p>
                     <div class="card-service">
                         <div class="card-service-main">
-                            <div class="card card-service-dashboard">
+                            <div class="card card-service-dashboard" onclick="goTo('laundry')">
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img src="{{ asset('images/washing-machine.png') }}" style="width: 70px; height: auto;" alt="">
@@ -179,4 +179,15 @@
 
 {{-- begin:scripts --}}
 @livewireScripts
+@push('scripts')
+<script>
+    function goTo(next) {
+        let path;
+        if (next == 'laundry') {
+            path = "{{ route('laundry.index') }}";
+            window.location.href = path;
+        }
+    }
+</script>
+@endpush
 {{-- end:scripts --}}
