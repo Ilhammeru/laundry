@@ -90,8 +90,13 @@
 @livewireStyles
 @endpush
 {{-- end::style --}}
+
+@php
+    $data = true;
+@endphp
+
 @section('content')
-    <div class="main-content--dashboard">
+    {{-- <div class="main-content--dashboard">
         <div class="container">
             <div class="row row-header-dashboard">
                 <h3 class="header-dashboard">Welcome, Ilham!</h3>
@@ -140,9 +145,14 @@
             <div class="row row-active-order-dashboard">
                 <div class="col">
                     <div class="d-flex justify-content-between align-items-center mb-2">
+                        @if (!$data)
                         <p class="title-section">Active Order</p>
-                        {{-- <button class="btn btn-sm btn-see-all">See All</button> --}}
+                        @else
+                        <button class="btn btn-sm btn-see-all">See All</button>
+                        @endif
                     </div>
+
+                    @if (!$data)
                     <div class="row mb-2 mt-2">
                         <div class="col">
                             <div class="d-flex align-items-center justify-content-center">
@@ -153,7 +163,8 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row mb-2">
+                    @else
+                    <div class="row mb-2">
                         <div class="col">
                             <div class="card card-flush card-current">
                                 <div class="card-body">
@@ -169,12 +180,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
+                    @endif
                 </div>
             </div>
 
         </div>
-    </div>
+    </div> --}}
+    @include('layout.bottom-sheet')
 @endsection
 
 {{-- begin:scripts --}}
