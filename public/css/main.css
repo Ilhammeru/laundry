@@ -29,3 +29,33 @@ body {
   padding-top: 70px;
   font-family: "Mingzat", sans-serif;
 }
+.main-content--service {
+  height: 100vh;
+  background-color: #EEF1FF;
+  width: 100%;
+}
+
+.bottom-sheet {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+}
+
+.bottom-sheet-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.bottom-sheet-icon--plus {
+  width: 40px;
+  height: 40px;
+}

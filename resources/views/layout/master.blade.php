@@ -17,11 +17,11 @@
 
     @stack('styles')
 
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <title>MyLaundry</title>
 </head>
 <body>
 
-    @include('layout.header')
     <div class="main-content">
         @yield('content')
     </div>
@@ -56,6 +56,8 @@
         }
     </script>
     
+    @stack('scripts')
+
     <script src="{{ asset('plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

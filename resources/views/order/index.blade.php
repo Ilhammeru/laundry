@@ -1,5 +1,7 @@
 @extends('layout.master')
 {{-- begin::style --}}
+@push('styles')
+    
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <style>
     .header-dashboard {
@@ -9,17 +11,23 @@
     }
 
     .title-section {
-        font-size: 10px;
-        
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 0 !important;
     }
 
-    .row-service-dashboard {
+    .row-service-dashboard,
+    .row-active-order-dashboard {
         margin-top: 40px !important;
     }
 
     .card-service-dashboard {
-        width: 140px;
-        height: 160px !important;
+        width: 120px;
+        height: 180px !important;
+        margin-right: 10px;
+        -webkit-box-shadow: 5px 2px 18px -6px rgba(0,0,0,0.75); 
+        box-shadow: -5px 2px 18px -12px rgba(0,0,0,0.75);
+        border: none !important;
     }
 
     .service-title {
@@ -32,22 +40,55 @@
         overflow-x: scroll;
         overflow-y: hidden;
         align-items: center;
+        padding: 10px 0;
     }
 
-    .title-section {
-        margin-bottom: 0 !important;
+    .card-service::-webkit-scrollbar {
+        display: none;
     }
     
     .card-service-main {
         display: flex;
-        width: 120%;
+        width: 110%;
     }
 
-    .card-service-dashboard {
-        margin-right: 10px;
+    .card-current > .card-body {
+        padding: 5px 15px;
+    }
+
+    .helper-detail-current {
+        font-size: 10px;
+        color: #70B9F7;
+    }
+
+    .card-current {
+        border-radius: 15px !important;
+        border: none !important;
+    }
+
+    .helper-logo {
+        margin-right: 20px;
+    }
+
+    .symbol {
+        flex-shrink: 0;
+        display: inline-block;
+        position: relative;
+        border-radius: 0.5rem;
+    }
+
+    .symbol-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .btn-see-all {
+        background-color: #68dde6 !important;
+        border-radius: 25px !important;
     }
 </style>
 @livewireStyles
+@endpush
 {{-- end::style --}}
 @section('content')
     <div class="main-content--dashboard">
@@ -95,6 +136,43 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row row-active-order-dashboard">
+                <div class="col">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="title-section">Active Order</p>
+                        {{-- <button class="btn btn-sm btn-see-all">See All</button> --}}
+                    </div>
+                    <div class="row mb-2 mt-2">
+                        <div class="col">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="text-center">
+                                    <img src="{{ asset('images/empty-order.png') }}" style="width: 160px; height: auto;" alt="">
+                                    <p>Dont Have Any Active Order :(</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="row mb-2">
+                        <div class="col">
+                            <div class="card card-flush card-current">
+                                <div class="card-body">
+                                    <div class="detail-current d-flex align-items-center">
+                                        <div class="helper-logo">
+                                            <img src="{{ asset('images/active-order.png') }}" style="width: 30px; height: auto;" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">Order No: #INV-001/2022</p>
+                                            <span class="helper-detail-current">Laundry / {{ date('d F Y H:i') }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection
